@@ -3,7 +3,7 @@
     <div class=''>
       <el-row :gutter="20">
         <el-col :span='4' v-for="video in videos" :key="video.id">
-            <el-card :body-style="{ padding: '0px' }">
+            <el-card @click.native="goVideo(video)">
               <img src="../assets/logo.png" class="video-avatar">
               <div>
                 <div class="video-title">{{video.title}}</div>
@@ -35,6 +35,9 @@ export default {
       API.getVideos().then(res => {
         this.videos = res.data
       })
+    },
+    goVideo (video) {
+      this.$router.push({ name: 'showVideo', params: { videoId: video.id } })
     }
   },
   beforeMount () {

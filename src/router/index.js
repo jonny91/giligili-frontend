@@ -19,6 +19,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
+    path: '/video/:videoID',
+    name: 'showVideo',
+    component: () => import('../views/ShowVideo.vue')
+  },
+  {
     path: '/postVideo',
     component: () => import('../views/PostVideo.vue')
   }
